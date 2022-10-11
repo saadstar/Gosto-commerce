@@ -3,13 +3,12 @@ const initialState = {
     carts:[]
 }
 export const CartReducer = (state=initialState,action) => {
-    switch (action.type) {
-      case "ADD_CART":
-        const itemIndex = state.carts.findIndex(
-          (item) => item.id === action.payload.id
+  switch (action.type) {
+    case "ADD_CART":
+      const itemIndex = state.carts.findIndex(
+        (item) => item.id === action.payload.id
         );
-
-        if (itemIndex >= 0) {
+        if (itemIndex >= 1) {
           state.carts[itemIndex].qty += 1;
         } else {
           const temp = { ...action.payload, qty: 1 };
